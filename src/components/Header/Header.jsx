@@ -4,7 +4,7 @@ import HeaderNavbar from "./HeaderNavbar";
 
 const Header = () => {
   return (
-    <header className="fixed backdrop-blur-md bg-white/70 shadow-md w-full flex items-center px-5 justify-between py-5">
+    <header className="sticky backdrop-blur-md bg-white/70 shadow-md w-full flex items-center px-5 h-15 justify-between py-5 top-0">
       <HeaderNavbar />
       <h1 className="ml-3 font-bold playfair_font text-[#646b5d]">
         E-COMMERCE

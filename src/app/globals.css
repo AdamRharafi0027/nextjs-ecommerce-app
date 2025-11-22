@@ -9,16 +9,6 @@
 @utility centred {
   @apply flex items-center justify-center;
 }
-/* .main_color_bg {
-  background: #a7b3a2;
-}
-.second_color_bg {
-  background: #646b5d;
-}
-
-.main_color {
-  color: #a7b3a2;
-}
-.second_color {
-  color: #646b5d;
+/* body {
+  overflow-x: hidden;
 } */
