@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useState } from "react";
 import navLinks from "./HeaderData";
 
-export const responsiveIconSize = window.screen.width >= 1024 ? 40 : 25
+export const responsiveIconSize = window.screen.width >= 1124 ? 40 : 25
 
 const HeaderNavbar = () => {
 

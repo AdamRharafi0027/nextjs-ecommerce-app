@@ -1,9 +1,14 @@
-import Hero from '@/components/Hero/Hero'
+import Hero from "@/sections/Hero/Hero"
+import ProductsSliced from "@/sections/ProductsSliced/ProductsSliced"
+import ServicesSection from "@/sections/ServicesSection/ServicesSection"
+
 
 const Home = () => {
   return (
     <>
-      <Hero />       
+      <Hero />    
+      <ProductsSliced />
+      <ServicesSection />   
     </>
   )
 }

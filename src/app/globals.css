@@ -9,6 +9,6 @@
 @utility centred {
   @apply flex items-center justify-center;
 }
-/* body {
+body {
   overflow-x: hidden;
-} */
+}

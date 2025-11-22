@@ -1,6 +1,7 @@
 import { Playfair_Display, Inter } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header/Header";
+import Footer from "@/components/Footer/Footer";
 
 const headingFont = Playfair_Display({
   variable: "--font-heading",
@@ -23,6 +24,7 @@ export default function RootLayout({ children }) {
       <body className={`${headingFont.variable} ${bodyFont.variable} bg-gray-100!`}>
         <Header />
         {children}
+        <Footer />
       </body>
     </html>
   );
