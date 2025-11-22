@@ -1,5 +1,5 @@
 const navLinksClassName =
-  "font-bold inter_font text-[#646b5d] text-[20px] hover:text-[#a7b3a2] transition-all duration-100";
+  "font-bold inter_font text-[#646b5d] text-[20px] lg:text-3xl hover:text-[#a7b3a2] transition-all duration-100";
 
 const navLinks = [
   { title: "Home", path: "/", className: navLinksClassName },

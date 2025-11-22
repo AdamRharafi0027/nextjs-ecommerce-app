@@ -1,23 +1,27 @@
 "use client"
 import { TextAlignJustify, X } from "lucide-react";
 import Link from "next/link";
-import React, { useState } from "react";
+import { useState } from "react";
 import navLinks from "./HeaderData";
 
+export const responsiveIconSize = window.screen.width >= 1024 ? 40 : 25
+
 const HeaderNavbar = () => {
+
+
       const [isMenuActivated, setIsMenuActivated] = useState(false);
   return (
     <>
       <nav>
-        <div className="centred">
+        <div className="centred relative z-50">
           {isMenuActivated ? (
-            <X onClick={() => setIsMenuActivated(false)} />
+            <X size={responsiveIconSize} className="cursor-pointer" color="#646b5d" onClick={() => setIsMenuActivated(false)} />
           ) : (
-            <TextAlignJustify onClick={() => setIsMenuActivated(true)} />
+            <TextAlignJustify className="cursor-pointer" size={responsiveIconSize}  color="#646b5d" onClick={() => setIsMenuActivated(true)} />
           )}
         </div>
         {isMenuActivated && (
-          <ul className="flex flex-col bg-white fixed left-0 top-16 h-screen w-50 pl-10 pt-20 gap-15">
+          <ul className="flex flex-col bg-white fixed left-0 top-0 h-screen w-50 lg:w-100 pl-10 lg:pl-20 pt-30 lg:pt-60 gap-15 lg:gap-20 z-10">
             {navLinks.map((link, index) => (
               <li key={index}>
                 <Link className={link.className} href={link.path}>
