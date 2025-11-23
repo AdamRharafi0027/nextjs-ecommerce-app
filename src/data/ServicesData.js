@@ -1,7 +1,7 @@
-import cod_image from "../../../public/images/COD.png"
-import fast_delivery_image from "../../../public/images/fast-d.png"
-import free_shipping_image from "../../../public/images/free-d.png"
-import service_image from "../../../public/images/serv-cl.png"
+import cod_image from "../../public/images/COD.png"
+import fast_delivery_image from "../../public/images/fast-d.png"
+import free_shipping_image from "../../public/images/free-d.png"
+import service_image from "../../public/images/serv-cl.png"
 
 export const ServicesData = [
     {

@@ -1,6 +1,6 @@
 const Footer = () => {
   return (
-    <footer className="w-full bg-[#646B5D] text-gray-300 py-10 mt-10">
+    <footer className="w-full bg-[#646B5D] text-gray-300 py-10 mt-10 ">
       <div className="max-w-6xl mx-auto px-6 flex flex-col md:flex-row justify-between gap-10">
 
         {/* Logo Section */}
@@ -10,7 +10,7 @@ const Footer = () => {
               E-COMMERCE
             </span>
           </div>
-          <p className="text-gray-400 text-sm max-w-xs">
+          <p className="text-white text-sm max-w-xs">
             Your favorite online store — quality products at the best prices.
           </p>
         </div>
@@ -52,7 +52,7 @@ const Footer = () => {
       </div>
 
       {/* Bottom Bar */}
-      <div className="border-t border-gray-700 mt-10 pt-5 text-center text-sm text-gray-500">
+      <div className="border-t border-gray-700 mt-10 pt-5 text-center text-sm text-white">
         © {new Date().getFullYear()} ShopEase — All rights reserved.
       </div>
 
