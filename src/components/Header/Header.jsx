@@ -1,10 +1,23 @@
 "use client"
 import { CircleUser, Handbag, Heart } from "lucide-react";
 import CounterLayout from "../ui/CounterLayout";
-import HeaderNavbar, { responsiveIconSize } from "./HeaderNavbar";
+import HeaderNavbar from "./HeaderNavbar";
 import { useEffect, useState } from "react";
+import GetResponsiveIconSize from "../GetResponsiveIconSize/GetResponsiveIconSize";
 
 const Header = () => {
+  const [iconSize, setIconSize] = useState(25);
+  
+    useEffect(() => {
+      const updateSize = () => {
+        setIconSize(GetResponsiveIconSize());
+      };
+  
+      updateSize(); // run on mount
+      window.addEventListener("resize", updateSize);
+  
+      return () => window.removeEventListener("resize", updateSize);
+    }, []);
     const [scrolled, setScrolled] = useState(false);
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 100);
@@ -20,12 +33,12 @@ const Header = () => {
       </h1>
       <div className="centred gap-2 lg:gap-10 text-[#646b5d]">
         <CounterLayout>
-          <Heart size={responsiveIconSize} />
+          <Heart size={iconSize} />
         </CounterLayout>
         <CounterLayout>
-          <Handbag size={responsiveIconSize} />
+          <Handbag size={iconSize} />
         </CounterLayout>
-        <CircleUser size={responsiveIconSize} />
+        <CircleUser size={iconSize} />
       </div>
     </header>
   );

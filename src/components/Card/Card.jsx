@@ -7,7 +7,7 @@ const Card = ({ product }) => {
   return (
     <div
       key={product.id}
-      className=" relative rounded-2xl  shadow-md hover:shadow-xl transition-all duration-300 bg-white overflow-hidden w-80 lg:w-100  "
+      className=" playfair_font relative rounded-2xl  shadow-md hover:shadow-xl transition-all duration-300 bg-white overflow-hidden w-80 lg:w-100  "
     >
       <ButtonLayout className={"rounded-full! absolute right-8 top-5 lg:p-4 lg:right-5 lg:top-3"}>
         <HeartPlus />
@@ -28,8 +28,8 @@ const Card = ({ product }) => {
           {product.title}
         </h1>
 
-        <div className="flex items-center justify-around mt-3">
-          <h2 className="text-2xl font-bold ">
+        <div className="centred justify-around -mt-3 lg:mt-3">
+          <h2 className="text-4xl font-bold ">
             ${product.price}
           </h2>
 
