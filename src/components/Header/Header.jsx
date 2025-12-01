@@ -4,9 +4,11 @@ import CounterLayout from "../ui/CounterLayout";
 import HeaderNavbar from "./HeaderNavbar";
 import { useEffect, useState } from "react";
 import GetResponsiveIconSize from "../GetResponsiveIconSize/GetResponsiveIconSize";
+import CartPage from "../CartPage/CartPage";
 
 const Header = () => {
   const [iconSize, setIconSize] = useState(25);
+  const [isCartOpen, setIsCartOpen] = useState(false)
   
     useEffect(() => {
       const updateSize = () => {
@@ -32,14 +34,19 @@ const Header = () => {
         E-COMMERCE
       </h1>
       <div className="centred gap-2 lg:gap-10 text-[#646b5d]">
-        <CounterLayout>
-          <Heart size={iconSize} />
+        <CounterLayout path="/favorites_page" >
+          <Heart size={iconSize}/>
         </CounterLayout>
-        <CounterLayout>
+        <CounterLayout path="" onclick={()=>{setIsCartOpen(true)}}>
           <Handbag size={iconSize} />
         </CounterLayout>
         <CircleUser size={iconSize} />
       </div>
+        {
+          isCartOpen && (
+             <CartPage iscartopen={setIsCartOpen} />
+          )
+        }
     </header>
   );
 };

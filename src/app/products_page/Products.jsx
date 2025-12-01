@@ -7,7 +7,7 @@ import React, { useEffect, useState } from "react";
 const Products = () => {
   const [products, setProducts] = useState([]);
   const [search, setSearch] = useState("");
-  const [selectedCategory, setSelectedCategory] = useState("All");
+  const [selectedCategory, setSelectedCategory] = useState("Electronics");
   const [loading, setLoading] = useState(true);
 
   // Fetch products
@@ -37,12 +37,8 @@ const Products = () => {
   }, []);
 
   const filteredProducts = products.filter((product) => {
-    const matchesSearch = product.title
-      .toLowerCase()
-      .includes(search.toLowerCase());
-    const matchesCategory =
-      selectedCategory === "All" ||
-      product.category.name === selectedCategory;
+    const matchesSearch = product.title.toLowerCase().includes(search.toLowerCase());
+    const matchesCategory = selectedCategory === "All" || product.category.name === selectedCategory;
 
     return matchesSearch && matchesCategory;
   });
