@@ -7,12 +7,13 @@ import React, { useEffect, useState } from "react";
 const Products = () => {
   const [products, setProducts] = useState([]);
   const [search, setSearch] = useState("");
-  const [selectedCategory, setSelectedCategory] = useState("Electronics");
+  const [selectedCategory, setSelectedCategory] = useState("All");
   const [loading, setLoading] = useState(true);
+  const [getCategory, setGetCategory] = useState("All")
 
   // Fetch products
   useEffect(() => {
-    const url = "https://api.escuelajs.co/api/v1/products";
+    const url = "https://fakestoreapi.com/products";
 
     const fetchData = async () => {
       try {
@@ -38,7 +39,7 @@ const Products = () => {
 
   const filteredProducts = products.filter((product) => {
     const matchesSearch = product.title.toLowerCase().includes(search.toLowerCase());
-    const matchesCategory = selectedCategory === "All" || product.category.name === selectedCategory;
+    const matchesCategory = selectedCategory === "All" || product.category === selectedCategory;
 
     return matchesSearch && matchesCategory;
   });

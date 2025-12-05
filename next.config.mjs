@@ -1,7 +1,12 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
    images: {
-    domains: ["i.imgur.com", "placehold.co", "placeimg.com", "pravatar.cc"],
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "**",
+      },
+    ],
   },
 };
 

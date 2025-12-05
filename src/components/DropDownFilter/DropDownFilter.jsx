@@ -7,7 +7,7 @@ const DropDownFilter = ({ products, selected, setSelected }) => {
 
   
   const categories = [
-    "All",...Array.from(new Set(products.map((p) => p.category.name))),
+    "All",...Array.from(new Set(products.map((p) => p.category))),
   ];
 
   return (
