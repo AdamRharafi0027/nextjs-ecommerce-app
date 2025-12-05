@@ -5,10 +5,13 @@ import HeaderNavbar from "./HeaderNavbar";
 import { useEffect, useState } from "react";
 import GetResponsiveIconSize from "../GetResponsiveIconSize/GetResponsiveIconSize";
 import CartPage from "../CartPage/CartPage";
+import { useSelector } from "react-redux";
 
 const Header = () => {
   const [iconSize, setIconSize] = useState(25);
   const [isCartOpen, setIsCartOpen] = useState(false)
+  const cartLength = useSelector(state=>state.cart.cart.length)
+    const favoriteLength = useSelector(state=>state.favorite.favorites.length)
   
     useEffect(() => {
       const updateSize = () => {
@@ -34,10 +37,10 @@ const Header = () => {
         E-COMMERCE
       </h1>
       <div className="centred gap-2 lg:gap-10 text-[#646b5d]">
-        <CounterLayout path="/favorites_page" >
-          <Heart size={iconSize}/>
+        <CounterLayout path="/favorites_page" count={favoriteLength} >
+          <Heart size={iconSize} />
         </CounterLayout>
-        <CounterLayout path="" onclick={()=>{setIsCartOpen(true)}}>
+        <CounterLayout path="" onclick={()=>{setIsCartOpen(true)}} count={cartLength}>
           <Handbag size={iconSize} />
         </CounterLayout>
         <CircleUser size={iconSize} />

@@ -1,9 +1,19 @@
-import { ShoppingBag, Info, HeartPlus } from "lucide-react";
+"use client";
+import { ShoppingBag, Info, HeartPlus, Heart } from "lucide-react";
 import Image from "next/image";
 import ButtonLayout from "../ui/ButtonLayout";
-import React from "react";
+import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import { addToCart } from "@/redux/features/cartSlice";
+import { addFavorites } from "@/redux/features/favoriteSlice";
 
 const Card = ({ product }) => {
+  const dispatch = useDispatch();
+  const [heartActivated, setHeartActivated] = useState(false);
+  const handleAddToCart = (product) => {
+    dispatch(addToCart(product));
+  };
+
   return (
     <div
       className="
@@ -14,9 +24,35 @@ const Card = ({ product }) => {
       "
     >
       {/* Favorite Button */}
-      <ButtonLayout className="rounded-full! absolute right-5 top-4 lg:p-4">
+      <ButtonLayout
+        className="rounded-full! absolute right-5 top-4 lg:p-4"
+        onclick={() => {
+          dispatch(addFavorites(product));
+        }}
+      >
         <HeartPlus />
       </ButtonLayout>
+      {heartActivated ? (
+        <ButtonLayout
+          className="rounded-full! absolute right-5 top-4 lg:p-4"
+          onclick={() => {
+            dispatch(addFavorites(product));
+          }}
+        >
+          <Heart className="fill-red-400 text-red-400" size={30}/>
+        </ButtonLayout>
+      ) : (
+
+        <ButtonLayout
+          className="rounded-full! absolute right-5 top-4 lg:p-4"
+          onclick={() => {
+            dispatch(addFavorites(product)),
+            setHeartActivated(true)
+          }}
+        >
+          <HeartPlus className="fill-transparent text-white" size={30}/>
+        </ButtonLayout>
+      )}
 
       {/* Image Wrapper */}
       <div className="w-full h-[220px] lg:h-[360px] bg-gray-50 flex justify-center items-center">
@@ -39,7 +75,12 @@ const Card = ({ product }) => {
           <h2 className="text-3xl font-bold">${product.price}</h2>
 
           <div className="flex items-center gap-3">
-            <ButtonLayout className="lg:py-3 lg:px-10!">
+            <ButtonLayout
+              className="lg:py-3 lg:px-10!"
+              onclick={() => {
+                handleAddToCart(product);
+              }}
+            >
               <ShoppingBag />
             </ButtonLayout>
 
