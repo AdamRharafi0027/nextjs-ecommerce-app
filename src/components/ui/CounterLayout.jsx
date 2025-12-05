@@ -1,7 +1,6 @@
 import Link from 'next/link'
 
 const CounterLayout = ({children, path = "/", onclick, count = 0}) => {
-  console.log(path)
   return (
     <Link href={path} className='relative' onClick={onclick}>
         {children}

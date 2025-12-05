@@ -3,7 +3,7 @@ import ButtonLayout from "@/components/ui/ButtonLayout";
 import React from "react";
 
 const ProductsSliced = async () => {
-  const url = "https://api.escuelajs.co/api/v1/products";
+  const url = "https://fakestoreapi.com/products";
   const response = await fetch(url, { cache: "force-cache" });
   if (!response.ok) {
       return " ERROR IN FETCHING DATA ";

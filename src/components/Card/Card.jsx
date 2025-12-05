@@ -6,6 +6,7 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { addToCart } from "@/redux/features/cartSlice";
 import { addFavorites } from "@/redux/features/favoriteSlice";
+import Link from "next/link";
 
 const Card = ({ product }) => {
   const dispatch = useDispatch();
@@ -84,9 +85,11 @@ const Card = ({ product }) => {
               <ShoppingBag />
             </ButtonLayout>
 
+              <Link href={`/product_details/${product.id}`}>
             <ButtonLayout className="lg:py-3 lg:px-10!">
               <Info />
             </ButtonLayout>
+              </Link>
           </div>
         </div>
       </div>
